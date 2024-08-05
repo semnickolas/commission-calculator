@@ -1,0 +1,13 @@
+services:
+  commission_calculator_app:
+    container_name: commission_calculator_app
+    build: docker_confs/php/.
+    volumes:
+      - .:/code
+      - ~/.ssh/:/root/.ssh/
+    environment:
+      DOCKER_HOST: "tcp://localhost:4243"
+    ports:
+      - "9009:9000"
+    networks:
+      - default
